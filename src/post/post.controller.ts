@@ -59,10 +59,12 @@ export class PostController {
       },
     });
   }
+
   @Delete('/:id')
   async deletePost(@Param('id') id: string): Promise<PostModel> {
     return this.postService.deletePost({ id: Number(id) });
   }
+
   @Put('publish/:id')
   async publishPost(@Param('id') id: string): Promise<PostModel> {
     return this.postService.updatePost({
@@ -70,4 +72,5 @@ export class PostController {
       data: { published: true },
     });
   }
+
 }
